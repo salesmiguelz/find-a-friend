@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -13,10 +7,83 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Example {
-  id    String @id @default(uuid())
-  email String @unique
-  name  String
+model Pet {
+  id                   String               @id @default(uuid())
+  name                 String
+  about                String
+  type                 PetType              @default(dog)
+  age                  PetAge               @default(puppy)
+  energyLevel          PetEnergyLevel       @default(low)
+  independenceLevel    PetIndependenceLevel @default(low)
+  size                 PetSize              @default(small)
+  environmentSize      PetEnvironmentSize   @default(small)
+  photos               String[]
+  adoptionRequirements String[]
+  Org                  Org                  @relation(fields: [orgId], references: [id])
+  orgId                String
 
-  @@map("examples")
+  @@map("pets")
+}
+
+model Org {
+  id          String     @id @default(uuid())
+  email       String
+  password    String
+  name        String
+  managerName String
+  phone       String
+  address     OrgAddress @relation(fields: [orgAddressId], references: [id])
+
+  Pet          Pet[]
+  orgAddressId String
+
+  @@map("orgs")
+}
+
+model OrgAddress {
+  id           String @id @default(uuid())
+  streetName   String
+  number       Int
+  complement   String
+  neighborhood String
+  city         String
+  state        String
+  Org          Org[]
+
+  @@map("orgs_addresses")
+}
+
+enum PetType {
+  dog
+  cat
+}
+
+enum PetAge {
+  puppy
+  teen
+  adult
+}
+
+enum PetSize {
+  small
+  medium
+  large
+}
+
+enum PetEnergyLevel {
+  low
+  medium
+  high
+}
+
+enum PetIndependenceLevel {
+  low
+  medium
+  high
+}
+
+enum PetEnvironmentSize {
+  small
+  medium
+  large
 }
