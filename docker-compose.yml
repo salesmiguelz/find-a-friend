@@ -8,6 +8,6 @@ services:
     ports:
       - 5432:5432
     environment:
-      - POSTGRESQL_USERNAME=username
-      - POSTGRESQL_PASSWORD=password
-      - POSTGRESQL_DATABASE=database_name
+      - POSTGRESQL_USERNAME=docker
+      - POSTGRESQL_PASSWORD=docker
+      - POSTGRESQL_DATABASE=find_a_friend
