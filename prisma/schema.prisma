@@ -8,49 +8,57 @@ datasource db {
 }
 
 model Pet {
-  id                   String               @id @default(uuid())
-  name                 String
-  about                String
-  type                 PetType              @default(dog)
-  age                  PetAge               @default(puppy)
-  energyLevel          PetEnergyLevel       @default(low)
-  independenceLevel    PetIndependenceLevel @default(low)
-  size                 PetSize              @default(small)
-  environmentSize      PetEnvironmentSize   @default(small)
-  photos               String[]
-  adoptionRequirements String[]
-  Org                  Org                  @relation(fields: [orgId], references: [id])
-  orgId                String
+  id                    String               @id @default(uuid())
+  name                  String
+  about                 String
+  type                  PetType              @default(dog)
+  age                   PetAge               @default(puppy)
+  energy_level          PetEnergyLevel       @default(low)
+  independence_level    PetIndependenceLevel @default(low)
+  size                  PetSize              @default(small)
+  environment_size      PetEnvironmentSize   @default(small)
+  photos                String[]
+  adoption_requirements String[]
+  Org                   Org                  @relation(fields: [org_id], references: [id])
+  org_id                String
 
   @@map("pets")
 }
 
 model Org {
-  id          String     @id @default(uuid())
+  id          String @id @default(uuid())
   email       String
   password    String
   name        String
   managerName String
   phone       String
-  address     OrgAddress @relation(fields: [orgAddressId], references: [id])
+  city_id     Int
+  state_id    Int
 
-  Pet          Pet[]
-  orgAddressId String
+  Pet   Pet[]
+  City  City  @relation(fields: [city_id], references: [id])
+  State State @relation(fields: [state_id], references: [id])
 
   @@map("orgs")
 }
 
-model OrgAddress {
-  id           String @id @default(uuid())
-  streetName   String
-  number       Int
-  complement   String
-  neighborhood String
-  city         String
-  state        String
-  Org          Org[]
+model City {
+  id    Int    @id @unique
+  state Int
+  uf    String
+  name  String
+  Org   Org[]
 
-  @@map("orgs_addresses")
+  @@map("cities")
+}
+
+model State {
+  id   Int    @id @unique
+  uf   String
+  name String
+  Org  Org[]
+
+  @@map("states")
 }
 
 enum PetType {
