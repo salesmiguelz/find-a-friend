@@ -17,7 +17,6 @@ model Pet {
   independence_level    PetIndependenceLevel @default(low)
   size                  PetSize              @default(small)
   environment_size      PetEnvironmentSize   @default(small)
-  photos                String[]
   adoption_requirements String[]
   Org                   Org                  @relation(fields: [org_id], references: [id])
   org_id                String
