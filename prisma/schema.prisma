@@ -11,13 +11,13 @@ model Pet {
   id                    String               @id @default(uuid())
   name                  String
   about                 String
-  type                  PetType              @default(dog)
-  age                   PetAge               @default(puppy)
-  energy_level          PetEnergyLevel       @default(low)
-  independence_level    PetIndependenceLevel @default(low)
-  size                  PetSize              @default(small)
-  environment_size      PetEnvironmentSize   @default(small)
-  adoption_requirements String[]
+  type                  PetType
+  age                   PetAge
+  energy_level          PetEnergyLevel
+  independence_level    PetIndependenceLevel
+  size                  PetSize
+  environment_size      PetEnvironmentSize
+  adoption_requirements String
   Org                   Org                  @relation(fields: [org_id], references: [id])
   org_id                String
 
@@ -61,36 +61,36 @@ model State {
 }
 
 enum PetType {
-  dog
-  cat
+  DOG
+  CAT
 }
 
 enum PetAge {
-  puppy
-  teen
-  adult
+  PUPPY
+  TEEN
+  ADULT
 }
 
 enum PetSize {
-  small
-  medium
-  large
+  SMALL
+  MEDIUM
+  LARGE
 }
 
 enum PetEnergyLevel {
-  low
-  medium
-  high
+  LOW
+  MEDIUM
+  HIGH
 }
 
 enum PetIndependenceLevel {
-  low
-  medium
-  high
+  LOW
+  MEDIUM
+  HIGH
 }
 
 enum PetEnvironmentSize {
-  small
-  medium
-  large
+  SMALL
+  MEDIUM
+  LARGE
 }
