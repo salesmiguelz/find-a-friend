@@ -1,4 +1,4 @@
-import { PrismaExamplesRepository } from "@/repositories/prisma/prisma-examples-repository";
+// import { PrismaExamplesRepository } from "@/repositories/prisma/prisma-examples-repository";
 import { ExampleService } from "../example.service";
 
 export function makeExampleService() {
