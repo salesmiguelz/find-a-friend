@@ -1,5 +1,4 @@
 import { InMemoryPetsRepository } from "@/repositories/in-memory/in-memory-pets-repository";
-import { PetsRepository } from "@/repositories/pets-repository";
 import { CreatePetService } from "./create-pet.service"
 import { it, describe, beforeEach, expect } from "vitest";
 import { PetAge, PetEnergyLevel, PetEnvironmentSize, PetIndependenceLevel, PetSize, PetType } from "@prisma/client"
