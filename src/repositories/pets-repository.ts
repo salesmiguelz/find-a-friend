@@ -1,13 +1,13 @@
 import { Pet, PetAge, PetEnergyLevel, PetEnvironmentSize, PetIndependenceLevel, PetSize, PetType, Prisma } from "@prisma/client";
 
 export interface FilterPetParams {
-  type: PetType
-  age: PetAge
-  energy_level: PetEnergyLevel
-  independence_level: PetIndependenceLevel
-  size: PetSize
-  environment_size: PetEnvironmentSize
-  adoption_requirements: string,
+  type?: PetType
+  age?: PetAge
+  energy_level?: PetEnergyLevel
+  independence_level?: PetIndependenceLevel
+  size?: PetSize
+  environment_size?: PetEnvironmentSize
+  adoption_requirements?: string,
   cityId: number
 }
 
