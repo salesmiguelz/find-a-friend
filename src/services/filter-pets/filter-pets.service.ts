@@ -4,13 +4,13 @@ import { NoPetsMatchFilters } from "../errors/no-pets-match-filters"
 
 
 interface FilterPetsRequest {
-    type: PetType
-    age: PetAge
-    energy_level: PetEnergyLevel
-    independence_level: PetIndependenceLevel
-    size: PetSize
-    environment_size: PetEnvironmentSize
-    adoption_requirements: string,
+    type?: PetType
+    age?: PetAge
+    energy_level?: PetEnergyLevel
+    independence_level?: PetIndependenceLevel
+    size?: PetSize
+    environment_size?: PetEnvironmentSize
+    adoption_requirements?: string,
     cityId: number
 }
 
@@ -19,7 +19,7 @@ interface FilterPetsResponse {
 }
 
 
-export class FilterPets {
+export class FilterPetsService {
     constructor(private petsRepository: PetsRepository) { }
 
     async execute(queries: FilterPetsRequest): Promise<FilterPetsResponse> {
