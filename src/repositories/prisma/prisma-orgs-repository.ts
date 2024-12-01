@@ -6,6 +6,7 @@ import { hash } from "bcryptjs"
 import { OrgNotFoundError } from "@/services/errors/org-not-found-error";
 
 export class PrismaOrgsRepository implements OrgsRepository {
+
     async create(data: Prisma.OrgUncheckedCreateInput): Promise<Org> {
         const org = await prisma.org.create({
             data: {
@@ -34,5 +35,19 @@ export class PrismaOrgsRepository implements OrgsRepository {
         }
 
         return org;
+    }
+
+    async findByEmail(email: string): Promise<Org | null> {
+        const org = await prisma.org.findUnique({
+            where: {
+                email
+            }
+        })
+
+        if (!org) {
+            throw new OrgNotFoundError()
+        }
+
+        return org
     }
 }
