@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { FastifyRequest, FastifyReply } from "fastify";
-import { makeCreateOrgService } from "@/services/factories/make-create-org";
+import { makeCreateOrgService } from "@/services/factories/make-create-org-service";
 
 export async function createOrgController(request: FastifyRequest, reply: FastifyReply) {
   const registerBodySchema = z.object({
