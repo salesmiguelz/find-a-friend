@@ -7,11 +7,11 @@ export async function petDetailsController(request: FastifyRequest, reply: Fasti
     id: z.string().uuid(),
   });
 
-  const data = petDetailsBodySchema.parse(request.body);
+  const data = petDetailsBodySchema.parse(request.params);
 
   const petDetailsService = makePetDetailsService();
 
   const { pet } = await petDetailsService.execute(data);
 
-  return reply.status(201).send({ pet });
+  return reply.status(200).send({ pet });
 }

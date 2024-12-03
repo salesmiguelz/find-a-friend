@@ -22,5 +22,5 @@ export async function filterPetsController(request: FastifyRequest, reply: Fasti
 
   const { pets } = await filterPetsService.execute(data);
 
-  return reply.status(201).send({ pets });
+  return reply.status(200).send({ pets });
 }

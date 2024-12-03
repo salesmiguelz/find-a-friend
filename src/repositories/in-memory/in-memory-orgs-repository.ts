@@ -1,6 +1,7 @@
 import { Prisma, Org } from "@prisma/client";
 import { OrgsRepository } from "../orgs-repository";
 import { randomUUID } from "crypto";
+import { hash } from "bcryptjs"
 
 export class InMemoryOrgsRepository implements OrgsRepository {
 
@@ -11,7 +12,7 @@ export class InMemoryOrgsRepository implements OrgsRepository {
             id: data.id ?? randomUUID(),
             name: data.name,
             email: data.email,
-            password: data.password,
+            password: await hash(data.password, 6),
             managerName: data.managerName,
             phone: data.phone,
             city_id: data.city_id,

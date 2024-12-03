@@ -1,5 +1,4 @@
 import { app } from "@/app";
-import { prisma } from "@/lib/prisma";
 import createAndAuthenticateOrg from "@/utils/tests/create-and-authenticate-org";
 import request from "supertest";
 import { it, beforeAll, describe, afterAll, expect } from "vitest";
