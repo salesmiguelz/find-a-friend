@@ -10,6 +10,7 @@ You can clone the repo to test it if you like <3
 
 - **npm install**, to install all libraries used.
 - **npm run dev**, to run the project.
+- Don't forget to run your PostgreSQL database, using Docker or similar.
 
 # Technologies used
 
@@ -39,6 +40,7 @@ Você pode clonar o repositório para testar se quiser <3
 
 - **npm install**, para instalar as bibliotecas utilizadas
 - **npm run dev**, para rodar o projeto
+- Não se esqueça de rodar o banco de dados PostgreSQL, utilizando o Docker ou similares.
 
 # Tecnologias Utilizadas
 
