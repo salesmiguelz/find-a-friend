@@ -37,6 +37,8 @@ export default async function createAndAuthenticateOrg(app: FastifyInstance) {
         password: "123456",
     })
 
+    const cookies = response.get('Set-Cookie') ?? []
+
     const { token } = response.body
-    return { token, org }
+    return { token, org, cookies }
 }

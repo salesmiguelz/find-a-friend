@@ -1,6 +1,4 @@
-import { InvalidCredentialsError } from "@/services/errors/invalid-credentials-error";
 import { FastifyRequest, FastifyReply } from "fastify";
-import { z } from "zod"
 
 export async function refreshController(
     request: FastifyRequest,

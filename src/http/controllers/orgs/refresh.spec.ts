@@ -13,14 +13,10 @@ describe("Refresh Token Controller e2e", () => {
         await app.close();
     })
 
-    it("should be able to authenticate an user", async () => {
-        const { token, org } = await createAndAuthenticateOrg(app);
+    it("should be able to refresh a token", async () => {
+        const { cookies, org } = await createAndAuthenticateOrg(app);
 
-        const response = await request(app.server).patch("/token/refresh").send({
-            email: org.email,
-            password: "123456"
-        })
-
+        const response = await request(app.server).patch("/token/refresh").set('Cookie', cookies)
         expect(response.statusCode).toBe(200)
         expect(response.body.token).toEqual(expect.any(String))
 
