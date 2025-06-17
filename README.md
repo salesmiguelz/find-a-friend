@@ -1,34 +1,4 @@
 # Find a Friend API
-
-Hi! 
-
-This is a Node.JS API developed using TypeScript to manage pet adoptions! You can create Pets and Orgs linked to them. All Orgs can be authenticated using a login and password. The pets can be filtered by its city, state and  characteristics.  
-
-You can clone the repo to test it if you like <3
-
-# How to run
-
-- **npm install**, to install all libraries used.
-- **npm run dev**, to run the project.
-- Don't forget to run your PostgreSQL database, using Docker or similar.
-
-# Technologies used
-
-- **Node.js**
-- **TypeScript**
-- **PostgreSQL**, as database
-- **Prisma**, as the ORM
-- **Fastify**, to manage the HTTP requests and JWT
-- **Zod**, to validate the requests bodies
-- **Vitest  && Supertest**, to create Unit and E2E tests
-- **Eslint**, to lint the code
-
-## Misc
-
-This project was developed to practice new techniques learned during the Rocketseat's Node.js course.
-
-
-# PT - BR
 Oi! 
 
 Esta é uma API Node.JS desenvolvida usando TypeScript para gerenciar adoções de animais de estimação! Você pode criar animais de estimação e organizações vinculadas a eles. Todas as organizações podem ser autenticadas usando login e senha. Os pets podem ser filtrados por cidade, estado e características.
